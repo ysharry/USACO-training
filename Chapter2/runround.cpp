@@ -31,11 +31,11 @@ int read(int *array, int n){
 void run(int n){
 	for(int i = 0; i < 10; i++){
 		table[i] = false;
-	}
+	} // initializing table for checking uniqueness
 	int len = read(array,n);
 	for(int i = 0; i < len; i++){
 		if (array[i] == 0){return;}	
-	}
+	}// check if none of the digits is zero
 	int d = array[0];
 	table[d] = true;
 	int index = 0;
@@ -44,15 +44,16 @@ void run(int n){
 		index = (index+d)%len;
 		d = array[index];
 		if(table[d]){
-			return;
+			return; // Some digit d appears more than once
 		} else {table[d] = true;}
 	}
-	if(index!=0){return;}
-	for(int i = 0; i < len; i++){
+	if(index!=0){return;} //check if it returns to the first digit
+	for(int i = 0; i < len; i
+		++){
 		if (array[i] != 0){
 			return;
 		}
-	}
+	}  // check if every digit is visited
 	found = true;
 	answer = n;
 
